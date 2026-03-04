@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap');
+
+/* ============================================
+   BRAND TOKENS — IRW
+   weareirw.com | Legal, Compliance & Real Estate
+   SOCIAL MEDIA DESIGN SYSTEM
+   Always use these styles. Never substitute.
+   ============================================ */
+
+
+/* --------------------------------------------
+   FONTS — Montserrat loaded via Google Fonts @import above
+   -------------------------------------------- */
+
+
+/* --------------------------------------------
+   DESIGN TOKENS — CSS Variables
+   -------------------------------------------- */
+
+:root {
+
+  /* --- FONT FAMILIES --- */
+  /* All typography uses Montserrat exclusively — no other fonts */
+  --font-heading:    'Montserrat', sans-serif;
+  --font-subheading: 'Montserrat', sans-serif;
+  --font-body:       'Montserrat', sans-serif;
+  --font-section:    'Montserrat', sans-serif;
+  --font-accent:     'Montserrat', sans-serif;
+
+  /* --- FONT WEIGHTS --- */
+  --font-weight-heading:    500;
+  --font-weight-subheading: 400;
+  --font-weight-body:       300;
+  --font-weight-section:    500;
+  --font-weight-accent:     400;
+
+  /* --- FONT STYLES --- */
+  --font-style-heading:    normal;
+  --font-style-subheading: normal;
+  --font-style-body:       normal;
+  --font-style-section:    normal;
+  --font-style-accent:     normal;
+
+  /* --- LETTER SPACING --- */
+  --letter-spacing-heading:    0px;
+  --letter-spacing-subheading: 1.5px;
+  --letter-spacing-body:       0.5px;
+  --letter-spacing-section:    1.5px;
+  --letter-spacing-accent:     1.5px;
+
+  /* --- TEXT TRANSFORM --- */
+  --text-transform-heading:    uppercase;
+  --text-transform-subheading: uppercase;
+  --text-transform-body:       none;
+  --text-transform-section:    uppercase;
+  --text-transform-accent:     uppercase;
+
+  /* --- LINE HEIGHT --- */
+  --line-height-heading:    1.1em;
+  --line-height-subheading: 1em;
+  --line-height-body:       1.1em;
+  --line-height-section:    1em;
+  --line-height-accent:     1em;
+
+  /* --- FONT SIZES — Hard minimums, never go below these ---
+     Headings:          30px minimum
+     Body text:         15px minimum
+     Subtitles/Accents: 12px minimum
+     Actual sizes are left to the designer's discretion per layout.
+     Default UP when uncertain — never down. */
+  --font-size-min-heading:  30px;
+  --font-size-min-body:     15px;
+  --font-size-min-accent:   12px;
+
+
+  /* --- COLORS --- */
+  --color-gray:        #E7E7E7;  /* Light Gray — subtle backgrounds */
+  --color-dark-navy:   #0f1031;  /* Dark Navy — primary dark background */
+  --color-teal-dark:   #123548;  /* Dark Teal — secondary dark background */
+  --color-teal-mid:    #497d8b;  /* Mid Teal — accent color, CTAs */
+  --color-teal-light:  #e3eeee;  /* Light Teal — soft backgrounds */
+  --color-teal-pale:   #c4dade;  /* Pale Teal — subtle tints */
+  --color-white:       #ffffff;  /* White — primary light background */
+  --color-black:       #000000;  /* Black — text on light backgrounds */
+
+
+  /* --- SPACING & PADDING --- */
+  --padding-post: 80px;   /* Safe inner margin for all posts */
+  --padding-card: 60px;   /* Inner breathing room for cards */
+
+  /* --- BORDER RADIUS --- */
+  --radius-none: 0px;   /* Sharp edges — brand default */
+  --radius-md:   8px;   /* Use sparingly and only when needed */
+
+  /* --- PARAGRAPH SPACING --- */
+  --margin-paragraph: 18px;  /* Minimum bottom margin on all paragraph/text block elements */
+
+}
+
+/* Paragraph bottom margin — applied globally */
+p, .body-text, .subheading, .heading, .section-header, .accent {
+  margin-bottom: var(--margin-paragraph);
+}
+
+
+/* --------------------------------------------
+   HARD MINIMUM FONT SIZES
+   These use max() with explicit px values on both sides
+   so the floor is never defeated by a small inherited em context.
+   Never override these with a smaller value anywhere.
+   -------------------------------------------- */
+
+.heading {
+  font-size: max(30px, 1em);  /* floor: 30px */
+}
+
+.body-text, p {
+  font-size: max(15px, 1em);  /* floor: 15px */
+}
+
+.subheading, .accent, button, .btn {
+  font-size: max(12px, 1em);  /* floor: 12px */
+}
+
+.section-header {
+  font-size: max(15px, 1em);  /* floor: 15px — same as body */
+}
+
+/* Extra guard — inline styles or tight wrappers can shrink 1em,
+   so we also declare the minimums directly as px fallbacks
+   on the element selectors themselves. Claude must never set
+   a font-size below these values anywhere in generated HTML/CSS:
+     headings  → 30px minimum
+     body / section → 15px minimum
+     accent / subtitle / buttons → 12px minimum             */
+
+
+/* --------------------------------------------
+   COLOR COMBINATIONS — Always follow these pairings
+   -------------------------------------------- */
+
+/*
+  bg: #0f1031  (dark navy)   ->  text: #ffffff or #e3eeee or #c4dade
+  bg: #123548  (dark teal)   ->  text: #ffffff or #e3eeee or #c4dade
+  bg: #497d8b  (mid teal)    ->  text: #ffffff
+  bg: #e3eeee  (light teal)  ->  text: #0f1031 or #123548
+  bg: #c4dade  (pale teal)   ->  text: #0f1031 or #123548
+  bg: #E7E7E7  (light gray)  ->  text: #0f1031 or #000000
+  bg: #ffffff  (white)       ->  text: #0f1031 or #000000
+*/
+
+.bg-dark-navy   { background-color: #0f1031; color: #ffffff; }
+.bg-teal-dark   { background-color: #123548; color: #ffffff; }
+.bg-teal-mid    { background-color: #497d8b; color: #ffffff; }
+.bg-teal-light  { background-color: #e3eeee; color: #0f1031; }
+.bg-teal-pale   { background-color: #c4dade; color: #0f1031; }
+.bg-gray        { background-color: #E7E7E7; color: #0f1031; }
+.bg-white       { background-color: #ffffff; color: #0f1031; }
+
+
+/* --------------------------------------------
+   TYPOGRAPHY ROLES — Ready-to-use classes
+   -------------------------------------------- */
+
+.heading {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-heading);
+  font-style: var(--font-style-heading);
+  letter-spacing: var(--letter-spacing-heading);
+  text-transform: var(--text-transform-heading);
+  line-height: var(--line-height-heading);
+}
+
+.subheading {
+  font-family: var(--font-subheading);
+  font-weight: var(--font-weight-subheading);
+  font-style: var(--font-style-subheading);
+  letter-spacing: var(--letter-spacing-subheading);
+  text-transform: var(--text-transform-subheading);
+  line-height: var(--line-height-subheading);
+}
+
+.body-text {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-body);
+  font-style: var(--font-style-body);
+  letter-spacing: var(--letter-spacing-body);
+  text-transform: var(--text-transform-body);
+  line-height: var(--line-height-body);
+}
+
+.section-header {
+  font-family: var(--font-section);
+  font-weight: var(--font-weight-section);
+  font-style: var(--font-style-section);
+  letter-spacing: var(--letter-spacing-section);
+  text-transform: var(--text-transform-section);
+  line-height: var(--line-height-section);
+}
+
+.accent, button, .btn {
+  font-family: var(--font-accent);
+  font-weight: var(--font-weight-accent);
+  font-style: var(--font-style-accent);
+  letter-spacing: var(--letter-spacing-accent);
+  text-transform: var(--text-transform-accent);
+  line-height: var(--line-height-accent);
+}
+
+
+/* --------------------------------------------
+   BRAND IDENTITY NOTES
+   -------------------------------------------- */
+
+/*
+  IRW is a full-service law firm based in Puerto Rico.
+  Divisions: Legal | Compliance | Real Estate
+
+  Brand personality:
+  - Professional, trustworthy, authoritative
+  - Warm and personal — all-female team, client-centered
+  - Premium but approachable
+
+  Visual style:
+  - Dark navy + teal palette = authority + calm confidence
+  - Montserrat only — clean, modern, highly legible
+  - Sharp edges preferred — clean editorial layouts
+  - Teal light and pale work well as soft background tints
+  - Dark navy and dark teal for bold, strong backgrounds
+
+  Language:
+  - Bilingual — Spanish & English (Puerto Rico-based)
+  - Tone: professional, reassuring, empowering
+*/
+
+
+/* --------------------------------------------
+   BRAND CONTACT INFO
+   Use exactly as written — no variations.
+   -------------------------------------------- */
+
+/*
+  Website:   weareirw.com
+  Email:     info@irwlaw.com
+  Phone:     (787) 775-0624
+  Address:   542 Av. Escorial, San Juan, Puerto Rico 00922
+  Hours:     Monday – Friday, 8:30 AM to 6:00 PM (AST)
+  Instagram: @weareirw
+  Facebook:  @irwlawoffice
+  LinkedIn:  linkedin.com/company/72343597
+*/
